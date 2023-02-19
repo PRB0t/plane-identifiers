@@ -2,30 +2,32 @@
   "name": "plane-identifiers",
   "version": "1.0.0",
   "description": "A tiny repository that includes a plane identifier database (i.e. planes.json) that can be used to link several private or corporate jets to people or companies.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "type": "module",
-  "scripts": {
-    "build": "tsc",
-    "sort_plane_identifiers": "node scripts/sort_plane_identifiers.js",
-    "submit_plane_identifiers": "node scripts/submit_plane_identifiers.js",
-    "update_plane_identifiers_badge": "node scripts/update_plane_identifiers_badge.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:planeninja/plane-identifiers.git"
-  },
   "keywords": [
     "planes",
     "tracking",
     "database",
     "anonymity"
   ],
-  "author": "Plane Ninja",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:planeninja/plane-identifiers.git"
+  },
   "license": "MIT",
+  "author": "Plane Ninja",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "sort": "npx sort-package-json",
+    "sort_plane_identifiers": "node scripts/sort_plane_identifiers.js",
+    "submit_plane_identifiers": "node scripts/submit_plane_identifiers.js",
+    "update_plane_identifiers_badge": "node scripts/update_plane_identifiers_badge.js"
+  },
   "devDependencies": {
-    "minimist": "^1.2.8",
     "@actions/core": "^1.10.0",
+    "minimist": "^1.2.8",
+    "sort-package-json": "^2.4.1",
     "typescript": "^4.9.5"
   }
 }
