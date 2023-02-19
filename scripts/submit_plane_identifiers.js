@@ -7,7 +7,9 @@
 import fs from "fs";
 import minimist from "minimist";
 import { sortObj } from "./common.js";
-import child_process from "child_process";
+import util from "util";
+import { exec } from "child_process";
+const execPromise = util.promisify(exec);
 
 const PRB0T_API =
   "https://xrbhog4g8g.execute-api.eu-west-2.amazonaws.com/prod/prb0t";
@@ -30,7 +32,9 @@ const PRBOT_REQUEST_BODY = {
  * @returns {boolean} True if the plane_identifiers.json file has changed.
  */
 async function planesJSONChanged() {
-  const { stdout } = await child_process.exec("git diff src/data/plane_identifiers.json");
+  const { stdout } = await execPromise(
+    "git diff src/data/plane_identifiers.json"
+  );
   return stdout.length > 0;
 }
 
