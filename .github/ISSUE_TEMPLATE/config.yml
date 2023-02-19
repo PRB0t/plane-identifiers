@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Add plane identifiers for persons or companies
+    url: https://github.com/jettracker-io/plane-identifiers#how-to-contribute
+    about: You can anonymously contribute plane identifiers here.
+  - name: Question
+    url: https://github.com/jettracker-io/jettracker/discussions
+    about: Please ask and answer questions here.
