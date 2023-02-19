@@ -17,5 +17,5 @@ jobs:
       - run: npm ci
 
       - name: Check whether the plane identifiers database is correctly sorted
-        run: node plane_identifiers_sort_check.js
+        run: node scripts/plane_identifiers_sort_check.js
   
