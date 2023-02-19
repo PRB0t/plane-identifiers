@@ -1,0 +1,21 @@
+{
+  "name": "plane-identifiers",
+  "version": "1.0.0",
+  "description": "A tiny repository that includes a plane identifier database (i.e. planes.json) that can be used to link several private or corporate jets to people or companies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:planeninja/plane-identifiers.git"
+  },
+  "keywords": [
+    "Planes",
+    "Tracking",
+    "Database",
+    "Anonymity"
+  ],
+  "author": "Plane Ninja",
+  "license": "MIT"
+}
