@@ -1,4 +1,6 @@
 /**
  * @file Export plane identifiers database.
  */
-declare const PlaneIdentifiers: any;
+import planeIdentifiers from "./data/plane_identifiers.js";
+export { planeIdentifiers };
+export default planeIdentifiers;

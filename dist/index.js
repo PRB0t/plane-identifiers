@@ -1,7 +1,6 @@
-"use strict";
 /**
  * @file Export plane identifiers database.
  */
-const PlaneIdentifiers = require("./data/plane_identifiers.json");
-module.exports = PlaneIdentifiers;
-module.exports.default = PlaneIdentifiers;
+import planeIdentifiers from "./data/plane_identifiers.js";
+export { planeIdentifiers };
+export default planeIdentifiers;

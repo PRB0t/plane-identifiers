@@ -1,4 +1,5 @@
 # Build files
+# NOTE: The dist folder is not ignored since we are not yet publishing to npm.
 node_modules
 
 # IDE
