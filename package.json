@@ -2,7 +2,7 @@
   "name": "plane-identifiers",
   "version": "1.0.0",
   "description": "A tiny repository that includes a plane identifier database (i.e. planes.json) that can be used to link several private or corporate jets to people or companies.",
-  "main": "dist/index.ts",
+  "main": "src/index.ts",
   "type": "module",
   "scripts": {
     "build": "tsc",
