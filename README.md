@@ -1,6 +1,6 @@
-# plane-identifiers
+# Plane Identifiers
 
-A tiny repository that includes a plane identifier database (i.e. [planes.json](src/data/planes.json)) that can be used to link several private or corporate jets to people or companies.
+A tiny repository that includes a plane identifier database (i.e. [plane_identifiers.json](src/data/plane_identifiers.json)) that can be used to link several private or corporate jets to people or companies.
 
 ## How to contribute
 
