@@ -3,7 +3,7 @@ name: Run PRB0t check
 on:
   pull_request:
     paths:
-      - "src/data/planes.json"
+      - "src/data/plane_identifiers.json"
 
 jobs:
   prB0t_check:
@@ -11,17 +11,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # Check whether PRB0T was used
+      # Check whether PRB0T was used.
       - uses: rickstaa/check_prb0t_action@v1
         id: prb0t_check
 
-      # Print results
+      # Print PRB0t check result.
       - run: |
           echo "PRB0t used: $USED_PRB0T"
 
       # Close PR if PROB0t was not used.
       - if: ${{ env.USED_PRB0T == 'false' }}
-        name: Close PR.
+        name: Close PR
         uses: actions/github-script@v5
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
@@ -35,7 +35,7 @@ jobs:
 
       # Comment to let user know why the PR was closed.
       - if: ${{ env.USED_PRB0T == 'false' }}
-        name: Write PR close comment.
+        name: Write PR close comment
         uses: actions/github-script@v5
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
@@ -49,7 +49,7 @@ jobs:
 
       # Add 'unsafe' label.
       - if: ${{ env.USED_PRB0T == 'false' }}
-        name: Add 'unsafe' label.
+        name: Add 'unsafe' label
         uses: actions/github-script@v5
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}

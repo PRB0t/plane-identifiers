@@ -1,12 +1,9 @@
-name: Update plane identifiers badge
+name: Build javascript package
 
-on:
-  push:
-    paths:
-      - "src/data/plane_identifiers.json"
+on: ["push"]
 
 jobs:
-  plane_identifiers_badge_update:
+  build_dist:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,12 +13,10 @@ jobs:
           node-version: 16
       - run: npm ci
 
-      - name: Check if plane identifiers badge is up to date
-        run: npm run update_plane_identifiers_badge
-        id: badge_check
+      - name: Build javascript package
+        run: npm run build
 
       - name: Commit changes if badge was outdated
-        if: ${{ steps.badge_check.outputs.badge_updated == 'true' }}
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "refactor: update plane identifiers badge."

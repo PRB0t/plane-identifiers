@@ -1,8 +1,8 @@
 /**
  * This script updates the plane identifiers badge.
  */
-const fs = require("fs");
-const core = require("@actions/core");
+import fs from "fs";
+import core from "@actions/core";
 
 /**
  * Main function.
@@ -10,7 +10,7 @@ const core = require("@actions/core");
 const main = async () => {
   // Count the number of plane identifiers.
   console.log("Counting the number of plane identifiers...");
-  const planes = JSON.parse(fs.readFileSync("src/data/planes.json", "utf8"));
+  const planes = JSON.parse(fs.readFileSync("src/data/plane_identifiers.json", "utf8"));
   const planes_count = Object.keys(planes).length;
   console.log(`Number of plane identifiers: ${planes_count}`);
 
