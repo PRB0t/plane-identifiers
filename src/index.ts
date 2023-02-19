@@ -3,5 +3,5 @@
  */
 import planeIdentifiers from "./data/plane_identifiers";
 
-export { PlaneIdentifiers, PlanesInfo} from "./data/plane_identifiers";
+export { planeIdentifiers };
 export default planeIdentifiers;

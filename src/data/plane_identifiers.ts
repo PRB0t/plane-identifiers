@@ -4,12 +4,12 @@
 import planeIdentifiers from "./plane_identifiers.json";
 
 /** Planes info. */
-export type PlanesInfo = { ICAOs: string[] };
+type PlanesInfo = { ICAOs: string[] };
 
 /**
  * Plane identifiers object type.
  */
-export interface PlaneIdentifiers {
+interface PlaneIdentifiers {
   [entity: string]: PlanesInfo;
 }
 
