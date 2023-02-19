@@ -4,7 +4,7 @@ A small npm package containing a plane identifier database (i.e. [plane_identifi
 
 <p align="center">
     <a href="https://github.com/jettracker-io/plane-identifiers/actions">
-        <img alt="Tests Passing" src="https://img.shields.io/github/actions/workflow/status/jettracker-io/plane-identifiers/firebase-hosting-merge.yml" />
+        <img alt="Tests Passing" src="https://img.shields.io/github/actions/workflow/status/jettracker-io/plane-identifiers/build_dist.yml" />
     </a>
     <a href="https://github.com/jettracker-io/plane-identifiers/graphs/contributors">
         <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/jettracker-io/plane-identifiers" />
