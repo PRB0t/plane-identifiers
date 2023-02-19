@@ -1,7 +1,7 @@
 /**
  * @file Export plane identifiers database.
  */
-import PlaneIdentifiers from "./data/plane_identifiers.json";
+import planeIdentifiers from "./data/plane_identifiers";
 
-export { PlaneIdentifiers };
-export default PlaneIdentifiers;
+export { PlaneIdentifiers, PlanesInfo} from "./data/plane_identifiers";
+export default planeIdentifiers;
