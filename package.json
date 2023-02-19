@@ -19,5 +19,8 @@
     "Anonymity"
   ],
   "author": "Plane Ninja",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "minimist": "^1.2.8"
+  }
 }

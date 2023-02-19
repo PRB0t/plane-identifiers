@@ -14,23 +14,23 @@ const PRB0T_API =
 const PRBOT_REQUEST_BODY = {
   user: "jettracker-io",
   repo: "plane-identifiers",
-  title: ":airplane: update planes.json",
-  commit: "feat: update planes.json",
-  description: "A change to planes.json was submitted.",
+  title: ":airplane: update 'plane_identifiers.json'",
+  commit: "feat: update 'plane_identifiers.json'",
+  description: "A change to 'plane_identifiers.json' was submitted.",
   files: [
     {
-      path: "src/data/planes.json",
-      content: "planes.json",
+      path: "src/data/plane_identifiers.json",
+      content: "{}",
     },
   ],
 };
 
 /**
- * Check if the planes.json file has changed.
- * @returns {boolean} True if the planes.json file has changed.
+ * Check if the plane_identifiers.json file has changed.
+ * @returns {boolean} True if the plane_identifiers.json file has changed.
  */
 async function planesJSONChanged() {
-  const { stdout } = await exec("git diff src/data/planes.json");
+  const { stdout } = await exec("git diff src/data/plane_identifiers.json");
   return stdout.length > 0;
 }
 
@@ -63,8 +63,8 @@ const isString = (value) => {
  * Main function.
  */
 const main = async () => {
-  var commit_message = "feat: update planes.json";
-  var description = "A change to planes.json was submitted.";
+  var commit_message = "feat: update 'plane_identifiers.json'";
+  var description = "A change to 'plane_identifiers.json' was submitted.";
 
   // Parse the command line arguments.
   const args = minimist(process.argv);
@@ -87,17 +87,17 @@ const main = async () => {
   commit_message = args.m ? args.m : PRBOT_REQUEST_BODY.commit;
   description = args.d ? args.d : PRBOT_REQUEST_BODY.description;
 
-  // Check if planes.json has changed.
+  // Check if plane_identifiers.json has changed.
   const changed = await planesJSONChanged();
   if (!changed) {
-    console.log("No changes to planes.json.");
+    console.log("No changes to 'plane_identifiers.json'.");
     return;
   }
-  console.log("Changes found in planes.json.");
+  console.log("Changes found in 'plane_identifiers.json'.");
 
-  // Read the planes.json file.
-  console.log("Reading planes.json...");
-  let rawdata = fs.readFileSync("./src/data/planes.json");
+  // Read the plane_identifiers.json file.
+  console.log("Reading 'plane_identifiers.json'...");
+  let rawdata = fs.readFileSync("./src/data/plane_identifiers.json");
   let planes = sortObj(JSON.parse(rawdata));
   if (commit_message !== null) {
     PRBOT_REQUEST_BODY.commit = commit_message;
