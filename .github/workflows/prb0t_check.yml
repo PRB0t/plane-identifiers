@@ -1,0 +1,62 @@
+name: Run PRB0t check
+
+on:
+  pull_request:
+    paths:
+      - "src/data/planes.json"
+
+jobs:
+  prB0t_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      # Check whether PRB0T was used
+      - uses: rickstaa/check_prb0t_action@v1
+        id: prb0t_check
+
+      # Print results
+      - run: |
+          echo "PRB0t used: $USED_PRB0T"
+
+      # Close PR if PROB0t was not used.
+      - if: ${{ env.USED_PRB0T == 'false' }}
+        name: Close PR.
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.pulls.update({
+              pull_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'closed'
+            })
+
+      # Comment to let user know why the PR was closed.
+      - if: ${{ env.USED_PRB0T == 'false' }}
+        name: Write PR close comment.
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Pull requests automatically closed since we only accept anonymous plane identifier pull requests (see [jettracker-io/plane-identifiers#how-to-contribute](https://github.com/jettracker-io/plane-identifiers#how-to-contribute)).'
+            })
+
+      # Add 'unsafe' label.
+      - if: ${{ env.USED_PRB0T == 'false' }}
+        name: Add 'unsafe' label.
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['unsafe']
+            })
