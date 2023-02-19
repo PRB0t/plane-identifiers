@@ -4,7 +4,9 @@
   "description": "A tiny repository that includes a plane identifier database (i.e. planes.json) that can be used to link several private or corporate jets to people or companies.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "submit_plane_identifiers": "node scripts/submit_plane_identifiers.js",
+    "update_plane_identifiers_badge": "node scripts/update_plane_identifiers_badge.js"
   },
   "repository": {
     "type": "git",
