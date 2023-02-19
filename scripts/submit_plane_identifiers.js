@@ -1,13 +1,13 @@
 /**
- * %@file Small npm script that can be used to anonymously submit a PR to the 
- * jettracker-io/plane-identifiers repo. See 
- * https://github.com/jettracker-io/plane-identifiers#how-to-contribute for more 
+ * %@file Small npm script that can be used to anonymously submit a PR to the
+ * jettracker-io/plane-identifiers repo. See
+ * https://github.com/jettracker-io/plane-identifiers#how-to-contribute for more
  * information.
  */
-const fs = require("fs");
-const util = require("node:util");
-const exec = util.promisify(require("node:child_process").exec);
-const minimist = require("minimist");
+import fs from "fs";
+import minimist from "minimist";
+import { sortObj } from "./common.js";
+import child_process from "child_process";
 
 const PRB0T_API =
   "https://xrbhog4g8g.execute-api.eu-west-2.amazonaws.com/prod/prb0t";
@@ -30,24 +30,9 @@ const PRBOT_REQUEST_BODY = {
  * @returns {boolean} True if the plane_identifiers.json file has changed.
  */
 async function planesJSONChanged() {
-  const { stdout } = await exec("git diff src/data/plane_identifiers.json");
+  const { stdout } = await child_process.exec("git diff src/data/plane_identifiers.json");
   return stdout.length > 0;
 }
-
-/**
- * Sort an object by key.
- *
- * @param {*} obj Object to sort.
- * @returns Sorted object.
- */
-const sortObj = (obj) => {
-  return Object.keys(obj)
-    .sort()
-    .reduce(function (result, key) {
-      result[key] = obj[key];
-      return result;
-    }, {});
-};
 
 /**
  * Check if variable is string.
@@ -122,7 +107,6 @@ const main = async () => {
       content: JSON.stringify(badge, null, 2),
     });
   }
-
 
   // Submit the PR.
   console.log("Submitting changes anonymously...");

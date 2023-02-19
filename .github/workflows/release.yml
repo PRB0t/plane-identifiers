@@ -31,7 +31,6 @@ jobs:
         with:
           tag: ${{ steps.bumpr.outputs.next_version }}
 
-      # Get tag name.
       - name: Get current tag
         id: tag
         uses: haya14busa/action-cond@v1
@@ -40,7 +39,6 @@ jobs:
           if_true: ${{ github.ref }}
           if_false: ${{ steps.bumpr.outputs.next_version }}
 
-      # Create release
       - name: Release version
         if: "steps.tag.outputs.value != ''"
         env:

@@ -1,0 +1,21 @@
+name: Check if plane identifier database is correctly sorted
+
+on:
+  push:
+    paths:
+      - "src/data/plane_identifiers.json"
+
+jobs:
+  plane_identifiers_database_sort_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm ci
+
+      - name: Check whether the plane identifiers database is correctly sorted
+        run: node scripts/plane_identifiers_sort_check.js
+  
