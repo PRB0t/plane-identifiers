@@ -1,7 +1,7 @@
 name: Run PRB0t check
 
 on:
-  pull_request:
+  pull_request_target:
     paths:
       - "src/data/plane_identifiers.json"
 
